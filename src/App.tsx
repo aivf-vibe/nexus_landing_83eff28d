@@ -11,10 +11,10 @@ const App: FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
-          <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-lg">
+          <h1 className="text-6xl font-bold text-white mb-6 drop-shadow-lg animate-fade-in">
             Welcome to Our Landing Page
           </h1>
-          <p className="text-xl text-white mb-8 drop-shadow">
+          <p className="text-xl text-white mb-8 drop-shadow animate-fade-in-delayed">
             A simple and beautiful landing page built with React, Vite, and TailwindCSS
           </p>
           <button 
