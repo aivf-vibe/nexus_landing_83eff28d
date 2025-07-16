@@ -7,8 +7,15 @@ const App: FC = () => {
     console.log('Get Started clicked')
   }
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
   const handleNavClick = (section: string) => {
     console.log(`Navigating to ${section}`);
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -49,13 +56,54 @@ const App: FC = () => {
               </div>
               <button 
                 className="md:hidden text-white hover:text-white/80 transition-colors"
-                onClick={() => console.log('Toggle mobile menu')}
+                onClick={toggleMobileMenu}
                 aria-label="Toggle Menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
                 </svg>
               </button>
+            </div>
+
+            {/* Mobile Menu */}
+            <div 
+              className={`md:hidden transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen 
+                  ? 'max-h-96 opacity-100 mt-4' 
+                  : 'max-h-0 opacity-0 pointer-events-none'
+              }`}
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg p-4 space-y-4">
+                <button 
+                  onClick={() => handleNavClick('features')}
+                  className="block w-full text-left text-white hover:text-white/80 transition-colors py-2"
+                >
+                  Features
+                </button>
+                <button 
+                  onClick={() => handleNavClick('about')}
+                  className="block w-full text-left text-white hover:text-white/80 transition-colors py-2"
+                >
+                  About
+                </button>
+                <button 
+                  onClick={() => handleNavClick('contact')}
+                  className="block w-full text-left text-white hover:text-white/80 transition-colors py-2"
+                >
+                  Contact
+                </button>
+                <button 
+                  onClick={handleGetStarted}
+                  className="w-full bg-white text-emerald-600 px-4 py-2 rounded-full font-semibold hover:bg-emerald-50 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 shadow hover:scale-105 transform duration-200 ease-in-out"
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
           </div>
         </nav>
