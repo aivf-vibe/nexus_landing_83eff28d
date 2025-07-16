@@ -7,8 +7,62 @@ const App: FC = () => {
     console.log('Get Started clicked')
   }
 
+  const handleNavClick = (section: string) => {
+    console.log(`Navigating to ${section}`);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600">
+      {/* Navigation Header */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <nav className="container mx-auto px-4 py-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-lg p-2">
+            <div className="flex items-center justify-between">
+              <div className="text-white font-bold text-xl">
+                Logo
+              </div>
+              <div className="hidden md:flex items-center space-x-8">
+                <button 
+                  onClick={() => handleNavClick('features')}
+                  className="text-white hover:text-white/80 transition-colors"
+                >
+                  Features
+                </button>
+                <button 
+                  onClick={() => handleNavClick('about')}
+                  className="text-white hover:text-white/80 transition-colors"
+                >
+                  About
+                </button>
+                <button 
+                  onClick={() => handleNavClick('contact')}
+                  className="text-white hover:text-white/80 transition-colors"
+                >
+                  Contact
+                </button>
+                <button 
+                  onClick={handleGetStarted}
+                  className="bg-white text-emerald-600 px-4 py-2 rounded-full font-semibold hover:bg-emerald-50 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 shadow hover:scale-105 transform duration-200 ease-in-out"
+                >
+                  Get Started
+                </button>
+              </div>
+              <button 
+                className="md:hidden text-white hover:text-white/80 transition-colors"
+                onClick={() => console.log('Toggle mobile menu')}
+                aria-label="Toggle Menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* Add padding to account for fixed header */}
+      <div className="pt-20">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -108,6 +162,7 @@ const App: FC = () => {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
