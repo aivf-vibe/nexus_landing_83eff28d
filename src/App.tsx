@@ -81,6 +81,34 @@ const App: FC = () => {
           </div>
         </div>
       </div>
+
+      {/* CTA Section */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 shadow-2xl p-8 md:p-12 text-center animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+            Ready to Get Started?
+          </h2>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Join us today and experience the power of modern web development with our cutting-edge tools and frameworks.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button 
+              onClick={handleGetStarted}
+              className="bg-white text-emerald-600 px-8 py-3 rounded-full font-semibold hover:bg-emerald-50 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 shadow-lg hover:scale-105 transform duration-200 ease-in-out min-w-[200px]"
+              aria-label="Sign Up Now"
+            >
+              Sign Up Now
+            </button>
+            <button 
+              onClick={handleGetStarted}
+              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 shadow-lg hover:scale-105 transform duration-200 ease-in-out min-w-[200px]"
+              aria-label="Learn More"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
